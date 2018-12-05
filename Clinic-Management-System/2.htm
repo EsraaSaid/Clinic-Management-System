@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head >
+<meta charset="UTF-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQYOVVdSGwYBVVJSBwIB"};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(16),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,s){try{p?p-=1:o(s||new UncaughtException(t,n,e),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t,n){var e=n?null:c.now();i("err",[t,e])}var i=t("handle"),a=t(17),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),d=!0)}s.on("fn-start",function(t,n,e){d&&(p+=1)}),s.on("fn-err",function(t,n,e){d&&!e[l]&&(f(e,l,function(){return!0}),this.thrown=!0,o(e))}),s.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,v="fn"+h,w="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(v,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(v,function(t,n){i(w,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(v,function(t,n){i(w,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(19)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(19)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(19)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(19)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){g.push(t),h&&(x?x.then(a):v?v(a):(E=-E,O.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(19)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,v=l.SI,w="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];n.exports=u;var b=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(w,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,b),b.prototype=p.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var x=m&&m.resolve();if(!v&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===w||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(16),s=t(17),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],e),t}finally{c.emit("fn-end",[f.now()],e)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){if(!o)return!1;if(t!==o)return!1;if(!n)return!0;if(!i)return!1;for(var e=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==e[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}n.exports={agent:o,version:i,match:r}},{}],16:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],17:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],18:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],19:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(17),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=m(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[g[e]];return d&&d.push([b,e,r,a]),a}}function p(t,n){y[t]=m(t).concat(n)}function h(t,n){var e=y[t];if(e)for(var r=0;r<e.length;r++)e[r]===n&&e.splice(r,1)}function m(t){return y[t]||[]}function v(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",g[e]=n,n in u||(u[n]=[])})}var y={},g={},b={on:p,addEventListener:p,removeEventListener:h,emit:e,get:v,listeners:m,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(16),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!E++){var t=x.info=NREUM.info,n=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(g,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+x.offset],null,"api");var e=p.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===p.readyState&&i()}function i(){c("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-x.offset}var s=(new Date).getTime(),c=t("handle"),f=t(16),u=t("ee"),d=t(15),l=window,p=l.document,h="addEventListener",m="attachEvent",v=l.XMLHttpRequest,w=v&&v.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:v,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var y=""+location,g={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1099.min.js"},b=v&&w&&w[h]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:s,now:a,origin:y,features:{},xhrWrappable:b,userAgent:d};t(12),p[h]?(p[h]("DOMContentLoaded",i,!1),l[h]("load",r,!1)):(p[m]("onreadystatechange",o),l[m]("onload",r)),c("mark",["firstbyte",s],null,"api");var E=0,O=t(18)},{}]},{},["loader",2,10,4,3]);</script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>12 Insider Tips for Choosing the Best Primary Care Doctor | Reader&#039;s Digest</title>
+		<script type="text/javascript">
+			var gs_channels="DEFAULT";
+			var gsurl=window.location!=window.top.location?document.referrer:window.location;
+			document.write('<scr'+'ipt type="text/javascript" src="https://trustedmediabrands.gscontxt.net/main/channels.fcgi?url='+encodeURIComponent(gsurl)+'"></scr'+'ipt>');
+		</script>
+		
+<meta property="fb:pages" content="45598662525" />
+
+<!-- BEGIN Salesforce DMP ControlTag for "tmbi.com" -->
+<script class='kxct' data-id='s9xpab5u5' data-timing='async' data-version='3.0' type='text/javascript'>
+window.Krux||((Krux=function(){Krux.q.push(arguments)}).q=[]);
+  (function(){
+    var k=document.createElement('script');k.type='text/javascript';k.async=true;
+    k.src=(location.protocol==='https:'?'https:':'http:')+'//cdn.krxd.net/controltag/s9xpab5u5.js';
+    var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(k,s);
+  }());
+</script>
+<!-- END Salesforce DMP ControlTag -->
+
+<script class='kxint' data-namespace='trustedmediabrandsinc' type='text/javascript'>
+window.Krux||((Krux=function(){Krux.q.push(arguments);}).q=[]);
+(function(){
+  function retrieve(n){
+    var k= 'kx'+'trustedmediabrandsinc_'+n, ls=(function(){
+      try {
+        return window.localStorage;
+      } catch(e) {
+        return null;
+      }
+    })();
+    if (ls) {
+        return ls[k] || '';
+    } else if (navigator.cookieEnabled) {
+        var m = document.cookie.match(k+'=([^;]*)');
+        return (m && unescape(m[1])) || '';
+    } else {
+        return '';
+    }
+  }
+  Krux.user = retrieve('user');
+  Krux.segments = retrieve('segs') ? retrieve('segs').split(',') : [];
+})();
+</script>
+<!-- This site is optimized with the Yoast SEO Premium plugin v9.0.2 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Your primary care doctor is possibly your most important health care professional. Don&#039;t just pick a name off a list—here&#039;s what the experts suggest."/>
+<link rel="canonical" href="https://www.rd.com/health/wellness/tips-choosing-primary-care-doctor/" />
+<link rel="publisher" href="https://plus.google.com/+readersdigest"/>
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="12 Insider Tips for Choosing the Best Primary Care Doctor | Reader&#039;s Digest" />
+<meta property="og:url" content="https://www.rd.com/health/wellness/tips-choosing-primary-care-doctor/" />
+<meta property="og:site_name" content="Reader&#039;s Digest" />
+<meta property="article:publisher" content="https://www.facebook.com/ReadersDigest" />
+<meta property="article:tag" content="Living Well" />
+<meta property="article:section" content="Everyday Wellness" />
+<meta property="og:image" content="https://www.rd.com/wp-content/uploads/2017/09/02_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_519507367_Stokkete-1024x683.jpg" />
+<meta property="og:image:width" content="1024" />
+<meta property="og:image:height" content="683" />
+<meta property="og:image:alt" content="doctor" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="Your primary care doctor is possibly your most important health care professional. Don&#039;t just pick a name off a list—here&#039;s what the experts suggest." />
+<meta name="twitter:title" content="12 Insider Tips for Choosing the Best Primary Care Doctor | Reader&#039;s Digest" />
+<meta name="twitter:site" content="@readersdigest" />
+<meta name="twitter:image" content="https://www.rd.com/wp-content/uploads/2017/09/02_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_519507367_Stokkete.jpg" />
+<meta name="twitter:creator" content="@readersdigest" />
+<!-- / Yoast SEO Premium plugin. -->
+
+<link rel='dns-prefetch' href='//fonts.gstatic.com' />
+<link rel='dns-prefetch' href='//assets.adobedtm.com' />
+<link rel='dns-prefetch' href='//tpc.googlesyndication.com' />
+<link rel='dns-prefetch' href='//m.addthisedge.com' />
+<link rel='dns-prefetch' href='//www.gstatic.com' />
+<link rel='dns-prefetch' href='//www.google-analytics.com' />
+<link rel='dns-prefetch' href='//js-agent.newrelic.com' />
+<link rel='dns-prefetch' href='//netdna.bootstrapcdn.com' />
+<link rel='dns-prefetch' href='//ajax.googleapis.com' />
+<link rel='dns-prefetch' href='//m.addthis.com' />
+<link rel="alternate" type="application/rss+xml" title="Reader&#039;s Digest &raquo; Feed" href="https://www.rd.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Reader&#039;s Digest &raquo; Comments Feed" href="https://www.rd.com/comments/feed/" />
+
+<script type="text/javascript">
+var digitalData = {"page":{"theme":"tmbi-theme-v3","sitename":"rd","pageName":"rd:Everyday Wellness:Health:listicle:12 Insider Tips for Choosing the Best Primary Care Doctor","content":{"contentName":"12 Insider Tips for Choosing the Best Primary Care Doctor","tmbiBrand":"rd-com","contentID":300810,"wpContentID":"","contentType":"listicle","category":"wellness, healthcare","tags":"Living Well","contentCost":"150","publishedDate":"2017-10-03","modifiedDate":"2017-10-03","image":{"licensorName":"Shutterstock","credits":"Stokkete\/Shutterstock"},"author":"Tina Donvito","authorRole":"","listicleEvent":true,"slideShowSingle":true,"slideTotal":12},"subCategory":"Everyday Wellness","subsubCategory":"Health","category":{"subCategory":"Everyday Wellness","subsubCategory":"Health","pageType":"wellness, healthcare"}},"ab":{"testing":"redesign:design_v2"}};
+</script>
+<link rel='stylesheet' id='opinionstage-style-css'  href='https://www.rd.com/wp-content/plugins/social-polls-by-opinionstage/opinionstage-style-common.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='opinionstage-font-style-css'  href='https://www.rd.com/wp-content/plugins/social-polls-by-opinionstage/opinionstage-font.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='owl-style-css'  href='https://www.rd.com/wp-content/plugins/tmbi-recirc-module/css/owl-carousel-min.css?ver=2.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='owl-theme-default-style-css'  href='https://www.rd.com/wp-content/plugins/tmbi-recirc-module/css/owl-theme-default-min.css?ver=2.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='re-circ-style-css'  href='https://www.rd.com/wp-content/plugins/tmbi-recirc-module/css/re-circ.css?ver=2.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-styles-css'  href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?ver=4.7.0' type='text/css' media='all' />
+<link rel='stylesheet' id='listicle-editor-styles-css'  href='https://www.rd.com/wp-content/plugins/rd-listicle/css/editor-style-listicle.css?ver=1.2' type='text/css' media='all' />
+<link rel='stylesheet' id='newsletter-css'  href='https://www.rd.com/wp-content/plugins/rd-newsletters/css/newsletter.css?ver=3.6' type='text/css' media='all' />
+<link rel='stylesheet' id='gpt-ads-style-css'  href='https://www.rd.com/wp-content/plugins/tmbi-ad-stack/css/helper.css?ver=2.1.2' type='text/css' media='all' />
+<link rel='stylesheet' id='tohv2-child-fonts-css'  href='https://fonts.googleapis.com/css?family=Lato%3A400%2C400i%2C700%2C700i%7COpen+Sans%3A400%2C400i%2C600%2C600i%2C700%2C700i&#038;ver=3.7.39' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css'  href='https://www.rd.com/wp-includes/css/dashicons.min.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='custom-icons-styles-css'  href='https://www.rd.com/wp-content/themes/tmbi-theme-v3/custom-icons-styles.css?ver=3.7.39' type='text/css' media='all' />
+<link rel='stylesheet' id='rdv2-child-theme-css'  href='https://www.rd.com/wp-content/themes/tmbi-theme-v3/rd-above-the-fold.min.css?ver=3.7.39' type='text/css' media='all' />
+<link rel='stylesheet' id='elasticpress-facets-css'  href='https://www.rd.com/wp-content/plugins/elasticpress/features/facets/assets/css/facets.min.css?ver=2.6.1' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.rd.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/tmbi-js-listicle/js/js-listicle-feature.js?ver=1.1.1'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/tmbi-sticky-feature/js/sticky-plugin.js?ver=1.0.1'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/tmbi-sticky-feature/js/sticky-custom.js?ver=1.0.1'></script>
+<script async type='text/javascript' src='//js-sec.indexww.com/ht/p/184414-36669666691496.js?ver=1.1'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/mu-plugins/cookie-controller/js/cookie.min.js?ver=1.2'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/mu-plugins/jquery-plugins/jquery.inview.custom.min.js?ver=1.3'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/mu-plugins/js/wp-js-hooks.js?ver=1.3'></script>
+<script async type='text/javascript' src='https://www.googletagservices.com/tag/js/gpt.js?ver=2.1.2'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/prebidjs/js/prebid.js?ver=1.2.0'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var prebid_conf = {"dfp_property":"","dfp_site_id":"","ad_stack_batch_sra_listicles":"1","ad_stack_batch_sra_homepage":"1","dfp_exclude_pages":"536374, 590970","dfp_lazy_load_offset_article":"800","dfp_lazy_load_offset_category":"800","dfp_lazy_load_offset_homepage":"800","dfp_lazy_load_offset_joke":"800","dfp_lazy_load_offset_listicle":"800","dfp_lazy_load_offset_projectdetail":"800","dfp_lazy_load_offset_recipedetail":"800","dfp_lazy_load_offset_slideshow":"800","dfp_lazy_load_offset_videocategory":"800","prebidjs_granularity":"dense","rubicon_account_id":"10696","rubicon_site_id":"24236","rubicon_atf_zone_id":"92324","rubicon_btf_zone_id":"92766","openx_del_domain":"trustedmediabrands-d.openx.net","appnexus_enabled":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/prebidjs/js/tmbi-prebid.js?ver=1.2.0'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/rd-parsely-multisite/js/dynamic-tracker.js?ver=1.0.4'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/rd-taboola/js/rd-taboola-loader.js?ver=0.2.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tmbi_ad_data = {"property":"6178","siteId":"rdg","pageType":"listicle","urlPath":"\/health\/wellness\/tips-choosing-primary-care-doctor\/","keywords":"living-well","category":"health","topic":"wellness,healthcare","header_bidders_timeout":"1000","_gfc":"","should_use_batch_SRA":"1","ad_slots":{"sponsor-logo":{"slotUrl":"sponsorattribution","sizes":{"mobile":[[4,4]],"tablet":[[4,4]],"desktop":[[4,4]],"large_screen":[[4,4]]},"targeting":{"tf":["atf"],"pos":["sponsor"],"location":[""]},"supported_types":[]},"postarticle":{"slotUrl":"postarticle","sizes":{"mobile":[[300,250],[300,600],[3,3]],"tablet":[[728,90],[300,250],[3,3]],"desktop":[[970,550],[970,250],[970,90],[728,90],[3,3]],"large_screen":[[970,550],[970,250],[970,90],[728,90],[3,3]]},"targeting":{"tf":["btf"],"pos":["postarticle"],"location":["bottom"]},"supported_types":[],"change_size":{"category":{"mobile":[[300,250],[300,600]],"tablet":[[300,250],[300,600]],"desktop":[[728,90]],"large_screen":[[970,250],[970,90],[728,90]]},"archive":{"mobile":[[300,250],[300,600]],"tablet":[[300,250],[300,600]],"desktop":[[728,90]],"large_screen":[[970,250],[970,90],[728,90]]},"projectdetail":{"mobile":[[300,250],[300,600]],"tablet":[[300,250],[300,600]],"desktop":[[728,90]],"large_screen":[[970,250],[970,90],[728,90]]},"videocategory":{"mobile":[[320,50],[300,250]],"tablet":[[728,90],[300,250]],"desktop":[[970,250],[970,90],[728,90],[300,250]],"large_screen":[]},"recipe":{"mobile":[[300,250],[300,600]],"tablet":[[728,90],[640,360]],"desktop":[[970,250],[970,90],[728,90]],"large_screen":[[970,250],[970,90],[728,90]]}}},"div-gpt-ad-1370019314148-05":{"slotUrl":"prearticle","sizes":{"mobile":[[320,50]],"tablet":[],"desktop":[],"large_screen":[]},"targeting":{"tf":["atf"],"pos":["prearticle"],"location":["top"]},"supported_types":[]},"div-gpt-ad-1370019314149-02":{"slotUrl":"postarticle","sizes":{"mobile":[[300,250],[300,600]],"tablet":[[728,90]],"desktop":[[970,250],[970,90],[728,90]],"large_screen":[[970,250],[970,90]]},"targeting":{"tf":["btf"],"pos":["postarticle"],"location":["bottom"]},"supported_types":[]},"ad-sidebar-top":{"slotUrl":"railtop","sizes":{"mobile":[],"tablet":[],"desktop":[[300,250]],"large_screen":[[300,250]]},"targeting":{"tf":["atf"],"pos":["railtop"],"location":["rail"]},"supported_types":[]},"mobile_prearticle":{"slotUrl":"prearticle","sizes":{"mobile":[[320,50]],"tablet":[],"desktop":[],"large_screen":[]},"targeting":{"tf":["atf"],"pos":["prearticle"],"location":["top"]},"supported_types":[]},"prearticle":{"slotUrl":"prearticle","sizes":{"mobile":[],"tablet":[[728,90]],"desktop":[[970,250],[970,90],[728,90]],"large_screen":[[970,250],[970,90],[728,90],[3,3]]},"targeting":{"tf":["atf"],"pos":["prearticle"],"location":["top"]},"supported_types":[],"change_size":{"homepage":{"mobile":[],"tablet":[[320,50]],"desktop":[[728,90]],"large_screen":[[970,250],[970,90],[728,90],[3,3]]},"recipedetail":{"mobile":[],"tablet":[[728,90]],"desktop":[[970,250],[970,90],[728,90],[3,3]],"large_screen":[[970,250],[970,90],[728,90],[3,3]]},"category":{"mobile":[],"tablet":[[300,250],[320,50]],"desktop":[[728,90]],"large_screen":[[970,250],[970,90],[728,90],[3,3]]},"archive":{"mobile":[],"tablet":[[300,250],[320,50]],"desktop":[[728,90]],"large_screen":[[970,250],[970,90],[728,90],[3,3]]},"projectdetail":{"mobile":[],"tablet":[[320,50]],"desktop":[[728,90]],"large_screen":[[970,250],[970,90],[728,90],[3,3]]},"videocategory":{"mobile":[],"tablet":[[728,90]],"desktop":[[970,250],[970,90],[728,90],[300,250]],"large_screen":[[970,250],[970,90],[728,90],[300,250]]},"listicle":{"mobile":[],"tablet":[[728,90],[640,360],[3,3]],"desktop":[[970,250],[970,90],[728,90],[3,3]],"large_screen":[[970,250],[970,90],[728,90],[3,3]]}}},"leaderboard":{"slotUrl":"oop","sizes":{"mobile":[],"tablet":[],"desktop":[],"large_screen":[[1,1]]},"targeting":{"tf":["atf"],"pos":["oop"],"location":["oop"]},"supported_types":[]},"div-gpt-ad-1370019314148-25":{"slotUrl":"prearticle","sizes":{"mobile":[],"tablet":[[320,50]],"desktop":[[728,90],[3,3]],"large_screen":[[970,250],[970,90],[728,90],[3,3]]},"targeting":{"tf":["atf"],"pos":["prearticle"],"location":["top"]},"supported_types":["listicle"]},"div-gpt-ad-1370019314148-20":{"slotUrl":"oop","sizes":{"mobile":[],"tablet":[],"desktop":[],"large_screen":[[1,1]]},"targeting":{"tf":["btf"],"pos":["oop"],"location":["oop"]},"supported_types":["listicle"]},"div-gpt-ad-1370019314148-02":{"slotUrl":"railtop","sizes":{"mobile":[],"tablet":[],"desktop":[],"large_screen":[[300,250]]},"targeting":{"tf":["atf"],"pos":["railtop"],"location":["rail"]},"supported_types":["listicle"]},"listicle-top-adunit-lazy":{"slotUrl":"top","sizes":{"mobile":[[300,250],[320,50],[3,3]],"tablet":[[300,250],[320,50],[3,3]],"desktop":[[728,90],[3,3],[300,250]],"large_screen":[[970,550],[970,250],[970,90],[728,90],[3,3],[300,250]]},"targeting":{"tf":["atf"],"pos":["top"],"location":["top"]},"supported_types":["listicle"]},"div-gpt-ad-1370019314148-04":{"slotUrl":"railmiddle","sizes":{"mobile":[],"tablet":[],"desktop":[],"large_screen":[[160,600],[300,250],[300,600]]},"targeting":{"tf":["atf"],"pos":["railmiddle"],"location":["rail"]},"supported_types":["listicle"]},"listicle-middle-adunit-lazy":{"slotUrl":"middle","sizes":{"mobile":[[300,250],[320,50],[3,3]],"tablet":[[300,250],[320,50],[3,3]],"desktop":[[728,90],[3,3],[300,250]],"large_screen":[[970,550],[970,250],[970,90],[728,90],[3,3],[300,250]]},"targeting":{"tf":["atf"],"pos":["middle"],"location":["middle"]},"supported_types":["listicle"]},"sidebar-ad":{"slotUrl":"railscroll","sizes":{"mobile":[],"tablet":[],"desktop":[],"large_screen":[[160,600],[300,250],[300,600],[300,1050]]},"targeting":{"tf":["btf"],"pos":["railscroll"],"location":["rail"]},"supported_types":["listicle"],"scroll_type":"rail"},"listicle-scroll-adunit-lazy":{"slotUrl":"scroll","sizes":{"mobile":[[300,250],[320,50],[3,3]],"tablet":[[300,250],[320,50],[3,3]],"desktop":[[728,90],[3,3],[300,250]],"large_screen":[[970,550],[970,250],[970,90],[728,90],[3,3],[300,250]]},"targeting":{"tf":["btf"],"pos":["scroll"],"location":["bottom"]},"supported_types":["listicle"],"scroll_type":"scroll"},"ad-sidebar-middle":{"slotUrl":"railmiddle","sizes":{"mobile":[],"tablet":[],"desktop":[],"large_screen":[[160,600],[300,250],[300,600]]},"targeting":{"tf":["atf"],"pos":["railmiddle"],"location":["rail"]},"supported_types":["listicle","article","recipe","projectdetail"]},"oop-adhesive":{"slotUrl":"oop","sizes":{"mobile":[[320,50]],"tablet":[[320,50]],"desktop":[],"large_screen":[]},"targeting":{"tf":["btf"],"pos":["oop"],"location":["oop"]},"supported_types":["listicle"]}},"global_targeting":{"pt":"listicle","source":["original_to_tmbi"],"mag_issue_date":["no_value"],"tmbi_first_associated":["rd.com"],"author":["tinadonvito"]},"options":{"dfp_property":"","dfp_site_id":"","ad_stack_batch_sra_listicles":true,"ad_stack_batch_sra_homepage":true,"dfp_exclude_pages":"536374, 590970","dfp_lazy_load_offset_article":"800","dfp_lazy_load_offset_category":"800","dfp_lazy_load_offset_homepage":"800","dfp_lazy_load_offset_joke":"800","dfp_lazy_load_offset_listicle":"800","dfp_lazy_load_offset_projectdetail":"800","dfp_lazy_load_offset_recipedetail":"800","dfp_lazy_load_offset_slideshow":"800","dfp_lazy_load_offset_videocategory":"800","prebidjs_granularity":"dense","rubicon_account_id":"10696","rubicon_site_id":"24236","rubicon_atf_zone_id":"92324","rubicon_btf_zone_id":"92766","openx_del_domain":"trustedmediabrands-d.openx.net","appnexus_enabled":"1"},"lazy_load_inview_offset":"800","contentID":"300810","platform":"desktop","ad_unit_two":"health","overrides":[]};
+var krux_data = {"page":{"category":"health","topic":"wellness,healthcare","keyword":"living-well","contentid":300810,"author":"Tina Donvito","source":"originaltotmbi","tmbi_first_associated":"rdcom"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/tmbi-ad-stack/js/tmbi-ad-stack.js?ver=2.1.2'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/tmbi-ad-stack/js/tmbi-batch-sra.js?ver=2.1.2'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/tmbi-amazon-a9/js/amazon-lib.js?ver=1.6'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/tmbi-amazon-a9/js/tmbi-amazon-a9.js?ver=1.6'></script>
+<script type='text/javascript' src='https://sb.scorecardresearch.com/c2/plugins/streamingtag_plugin_jwplayer.js?ver=1.0.1'></script>
+<script async type='text/javascript' src='//s.ntv.io/serve/load.js?ver=1.2'></script>
+<!--[if lt IE 9]>
+<script type='text/javascript' src='https://www.rd.com/wp-content/themes/genesis/lib/js/html5shiv.min.js?ver=3.7.3'></script>
+<![endif]-->
+<script type='text/javascript' src='https://www.rd.com/wp-content/themes/tmbi-theme-v3/js/slinky.min.js?ver=3.7.39'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/themes/tmbi-theme-v3/js/jokes-share-button.js?ver=3.7.39'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var site_name = {"is_rd":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/tmbi-social-share/js/addthis-config.js?ver=1.2.4'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/themes/tmbi-theme-v3/js/listicle-scroll-tracking.js?ver=3.7.39'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var fb_app_id = {"app_id":"1460464994268018"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/fb-sdk/js/fb-sdk.js?ver=1.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var fbq_init_label = {"fbq_init_data":"1468910830064549"};
+/* ]]> */
+</script>
+<script async type='text/javascript' src='https://www.rd.com/wp-content/plugins/tmbi-fb-retargeting-pixel/js/facebook-retargeting-tag.js?ver=0.0.1'></script>
+<script type='text/javascript' src='//assets.adobedtm.com/c30a7f4dba5fcf320694d4fefeabd1cf4867f8ed/satelliteLib-247ea3eef67c38bd658d7bf9d4d87aa2e09a9dc9.js?ver=1.3.8'></script>
+<link rel='https://api.w.org/' href='https://www.rd.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.rd.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.rd.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.9.8" />
+<link rel='shortlink' href='https://www.rd.com/?p=300810' />
+<link rel="alternate" type="application/json+oembed" href="https://www.rd.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.rd.com%2Fhealth%2Fwellness%2Ftips-choosing-primary-care-doctor%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.rd.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.rd.com%2Fhealth%2Fwellness%2Ftips-choosing-primary-care-doctor%2F&#038;format=xml" />
+
+            <script>
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','//www.google-analytics.com/analytics.js','gaplusu');
+
+                                                            gaplusu('create', 'UA-17041328-1', 'auto');
+                    
+                                                                gaplusu('require', 'displayfeatures');
+                    
+                    gaplusu('send', 'pageview');
+                
+                            </script>
+
+		<meta property="fb:app_id" content="1460464994268018" />
+<script type="application/ld+json">
+{"@context":"https:\/\/schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https:\/\/www.rd.com\/health\/wellness\/tips-choosing-primary-care-doctor\/#card-1\/"},{"@type":"ListItem","position":2,"url":"https:\/\/www.rd.com\/health\/wellness\/tips-choosing-primary-care-doctor\/#card-2\/"},{"@type":"ListItem","position":3,"url":"https:\/\/www.rd.com\/health\/wellness\/tips-choosing-primary-care-doctor\/#card-3\/"},{"@type":"ListItem","position":4,"url":"https:\/\/www.rd.com\/health\/wellness\/tips-choosing-primary-care-doctor\/#card-4\/"},{"@type":"ListItem","position":5,"url":"https:\/\/www.rd.com\/health\/wellness\/tips-choosing-primary-care-doctor\/#card-5\/"},{"@type":"ListItem","position":6,"url":"https:\/\/www.rd.com\/health\/wellness\/tips-choosing-primary-care-doctor\/#card-6\/"},{"@type":"ListItem","position":7,"url":"https:\/\/www.rd.com\/health\/wellness\/tips-choosing-primary-care-doctor\/#card-7\/"},{"@type":"ListItem","position":8,"url":"https:\/\/www.rd.com\/health\/wellness\/tips-choosing-primary-care-doctor\/#card-8\/"},{"@type":"ListItem","position":9,"url":"https:\/\/www.rd.com\/health\/wellness\/tips-choosing-primary-care-doctor\/#card-9\/"},{"@type":"ListItem","position":10,"url":"https:\/\/www.rd.com\/health\/wellness\/tips-choosing-primary-care-doctor\/#card-10\/"},{"@type":"ListItem","position":11,"url":"https:\/\/www.rd.com\/health\/wellness\/tips-choosing-primary-care-doctor\/#card-11\/"},{"@type":"ListItem","position":12,"url":"https:\/\/www.rd.com\/health\/wellness\/tips-choosing-primary-care-doctor\/#card-12\/"}]}
+</script>
+<link rel="api" href="https://www.rd.com/wp-json/wp/v2/listicle/300810?_embed">
+
+<script type="application/ld+json">
+{
+    "@context": "https:\/\/schema.org",
+    "@type": "BlogPosting",
+    "headline": "12 Insider Tips for Choosing the Best Primary Care Doctor",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https:\/\/www.rd.com\/health\/wellness\/tips-choosing-primary-care-doctor\/"
+    },
+    "description": "Your primary care physician is possibly your most important health care professional. Don't just pick a name off your insurance's list\u2014here's what the experts suggest.\r\n",
+    "datePublished": "2017-10-03T17:01:19Z",
+    "dateModified": "2017-10-03T17:01:19Z",
+    "author": [
+        {
+            "@type": "Person",
+            "name": "Tina Donvito"
+        }
+    ],
+    "image": [
+        {
+            "@type": "ImageObject",
+            "url": "https:\/\/www.rd.com\/wp-content\/uploads\/2017\/09\/02_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_519507367_Stokkete-1200x675.jpg",
+            "width": 1200,
+            "height": 675
+        },
+        {
+            "@type": "ImageObject",
+            "url": "https:\/\/www.rd.com\/wp-content\/uploads\/2017\/09\/02_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_519507367_Stokkete-1200x900.jpg",
+            "width": 1200,
+            "height": 900
+        },
+        {
+            "@type": "ImageObject",
+            "url": "https:\/\/www.rd.com\/wp-content\/uploads\/2017\/09\/02_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_519507367_Stokkete-1200x1200.jpg",
+            "width": 1200,
+            "height": 1200
+        }
+    ],
+    "publisher": {
+        "@type": "Organization",
+        "name": "Reader&#039;s Digest",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https:\/\/rd.com\/wp-content\/themes\/rdus-child\/images\/RD_Logo_OneLine_60x335.png",
+            "width": 335,
+            "height": 60
+        }
+    },
+    "url": "https:\/\/www.rd.com\/health\/wellness\/tips-choosing-primary-care-doctor\/",
+    "dateCreated": "2017-10-03T17:01:19Z",
+    "articleSection": "Everyday Wellness",
+    "creator": [
+        {
+            "@type": "Person",
+            "name": "Tina Donvito"
+        }
+    ],
+    "keywords": [
+        "Living Well"
+    ]
+}
+</script>
+<meta name="pageName" content = "12 Insider Tips for Choosing the Best Primary Care Doctor">
+<meta name="contentId" content = "300810">
+<link rel="icon" href="https://www.rd.com/wp-content/uploads/2018/10/NEWRDicon10.9.18-150x150.png" sizes="32x32" />
+<link rel="icon" href="https://www.rd.com/wp-content/uploads/2018/10/NEWRDicon10.9.18.png" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="https://www.rd.com/wp-content/uploads/2018/10/NEWRDicon10.9.18.png" />
+<meta name="msapplication-TileImage" content="https://www.rd.com/wp-content/uploads/2018/10/NEWRDicon10.9.18.png" />
+		<style type="text/css" id="wp-custom-css">
+			.single .center {
+    text-align:left;
+}
+.single .image-credit {
+    padding-top: 8px;
+    padding-bottom: 2em;
+    font-size: 13px;
+    color: #8e8e8e;
+    font-weight: 400;
+}
+.header-logo {
+background-image: url(https://www.rd.com/wp-content/uploads/2018/10/rd-header-logo-gma-1.png);
+}
+.sticky .header-logo {
+background-image: url(https://www.rd.com/wp-content/uploads/2018/10/rd-sticky-logo-gma-1.png);
+}
+.site-footer .footer-logo {
+background-image: url(https://www.rd.com/wp-content/uploads/2018/10/rd-footer-logo-gma-1.png);
+} 
+
+body .ad-wrapper {
+   z-index: 3 !important;
+}
+
+body.video-hub-archive .video-playlist .owl-carousel {
+    z-index: 1 !important;
+}		</style>
+	</head>
+<body class="listicle-template-default single single-listicle postid-300810 header-full-width full-width-content single-collection collection list-view"><div class="site-container"><section><span class="screen-reader-text">Skip links</span><ul class="genesis-skip-link"><li><a href="#genesis-content" class="screen-reader-shortcut"> Skip to content</a></li><li><a href="#genesis-footer-widgets" class="screen-reader-shortcut"> Skip to footer</a></li></ul></section>
+<div class="white-out"></div>
+<!-- Ad Start:BILLBOARD_PLACEMENT -->
+<div class="ad-wrapper mobile_billboard" data-ad="mobile_prearticle" >
+<div id='div-gpt-ad-1370019314148-05' style='display:none; margin: 0 auto;' class='ad-container'>
+</div>
+</div>
+<!-- Ad End:BILLBOARD_PLACEMENT -->
+<header class="site-header"><div class="wrap">	<div class="desktop-upper-wrapper">
+		<div id="subscribe-to-magazine"><a data-analytics-metrics='{"link_name":"subscribe","link_module":"header","link_pos":"secondary navigation"}' class="subscribe-header-cta" target="_blank" rel="noopener" href="https://order.readersdigest.com/servlet/OrdersGateway?cds_mag_code=RDA&cds_page_id=212947&cds_response_key=IW7ADU101"><img class="subscribe-logo" alt="Subscribe" src="https://www.rd.com/wp-content/uploads/2018/05/subscribe-to-the-mag-rd-1.png"></a></div>	</div>
+	<!-- .desktop-upper-wrapper -->
+
+	<button id="toh-menu-toggle" class="toh-menu-toggle" aria-expanded="false" aria-controls="toh-menu-wrapper">
+		<div class="toh-menu-icon" aria-hidden="true">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div class="menu-close">Menu</div>
+		<div class="menu-open">Close</div>
+	</button>
+	<!-- .toh-menu-toggle -->
+
+	<div class="toh-menu-wrapper" id="toh-menu-wrapper" aria-hidden="true">
+
+		<div class="toh-site-menu-wrapper">
+			<div class="menu-hamburger-menu-container"><ul id="menu-hamburger-menu" class="toh-site-menu"><li id="menu-item-59934" class="menu-item menu-item-type-taxonomy menu-item-object-category current-listicle-ancestor menu-item-has-children"><a href="https://www.rd.com/health/">Health</a>
+<ul class="sub-menu">
+	<li id="menu-item-120486" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Health:Diabetes","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/diabetes/">Diabetes</a></li>
+	<li id="menu-item-59937" class="menu-item menu-item-type-taxonomy menu-item-object-category"><a data-analytics-metrics='{"link_name":"Health:Diet &amp; Weight Loss","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/health/diet-weight-loss/">Diet &#038; Weight Loss</a></li>
+	<li id="menu-item-59933" class="menu-item menu-item-type-taxonomy menu-item-object-category current-listicle-ancestor current-menu-parent current-listicle-parent"><a data-analytics-metrics='{"link_name":"Health:Everyday Wellness","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/health/wellness/">Everyday Wellness</a></li>
+	<li id="menu-item-59940" class="menu-item menu-item-type-taxonomy menu-item-object-category"><a data-analytics-metrics='{"link_name":"Health:Healthy Eating","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/health/healthy-eating/">Healthy Eating</a></li>
+	<li id="menu-item-59939" class="menu-item menu-item-type-taxonomy menu-item-object-category current-listicle-ancestor current-menu-parent current-listicle-parent"><a data-analytics-metrics='{"link_name":"Health:Health Care","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/health/healthcare/">Health Care</a></li>
+	<li id="menu-item-59938" class="menu-item menu-item-type-taxonomy menu-item-object-category"><a data-analytics-metrics='{"link_name":"Health:Fitness","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/health/fitness/">Fitness</a></li>
+	<li id="menu-item-59936" class="menu-item menu-item-type-taxonomy menu-item-object-category"><a data-analytics-metrics='{"link_name":"Health:Conditions","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/health/conditions/">Conditions</a></li>
+	<li id="menu-item-228841" class="menu-item menu-item-type-taxonomy menu-item-object-category"><a data-analytics-metrics='{"link_name":"Health:Beauty","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/health/beauty/">Beauty</a></li>
+</ul>
+</li>
+<li id="menu-item-49567" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children"><a href="https://www.rd.com/food/">Food</a>
+<ul class="sub-menu">
+	<li id="menu-item-92880" class="menu-item menu-item-type-taxonomy menu-item-object-category"><a data-analytics-metrics='{"link_name":"Food:Food Fun &amp; News","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/food/fun/">Food Fun &#038; News</a></li>
+	<li id="menu-item-92881" class="menu-item menu-item-type-taxonomy menu-item-object-category"><a data-analytics-metrics='{"link_name":"Food:Recipes &amp; Cooking","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/food/recipes-cooking/">Recipes &#038; Cooking</a></li>
+</ul>
+</li>
+<li id="menu-item-49662" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children"><a href="https://www.rd.com/advice/">Advice</a>
+<ul class="sub-menu">
+	<li id="menu-item-57249" class="menu-item menu-item-type-taxonomy menu-item-object-category"><a data-analytics-metrics='{"link_name":"Advice:Parenting","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/advice/parenting/">Parenting</a></li>
+	<li id="menu-item-88579" class="menu-item menu-item-type-taxonomy menu-item-object-category"><a data-analytics-metrics='{"link_name":"Advice:Pets","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/advice/pets/">Pets</a></li>
+	<li id="menu-item-66657" class="menu-item menu-item-type-taxonomy menu-item-object-category"><a data-analytics-metrics='{"link_name":"Advice:Home","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/home/">Home</a></li>
+	<li id="menu-item-57251" class="menu-item menu-item-type-taxonomy menu-item-object-category"><a data-analytics-metrics='{"link_name":"Advice:Relationships","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/advice/relationships/">Relationships</a></li>
+	<li id="menu-item-57250" class="menu-item menu-item-type-taxonomy menu-item-object-category"><a data-analytics-metrics='{"link_name":"Advice:Saving Money","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/advice/saving-money/">Saving Money</a></li>
+	<li id="menu-item-49643" class="menu-item menu-item-type-taxonomy menu-item-object-category"><a data-analytics-metrics='{"link_name":"Advice:Travel","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/advice/travel/">Travel</a></li>
+	<li id="menu-item-57252" class="menu-item menu-item-type-taxonomy menu-item-object-category"><a data-analytics-metrics='{"link_name":"Advice:Work &amp; Career","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/advice/work-career/">Work &#038; Career</a></li>
+</ul>
+</li>
+<li id="menu-item-144129" class="menu-item menu-item-type-taxonomy menu-item-object-category"><a data-analytics-metrics='{"link_name":"Culture","link_module":"header","link_pos":"main navigation"}' href="https://www.rd.com/culture/">Culture</a></li>
+<li id="menu-item-49646" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children"><a href="https://www.rd.com/true-stories/">True Stories</a>
+<ul class="sub-menu">
+	<li id="menu-item-78205" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"True Stories:Share Your 100-Word Story","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/stories/">Share Your 100-Word Story</a></li>
+	<li id="menu-item-49641" class="menu-item menu-item-type-taxonomy menu-item-object-category"><a data-analytics-metrics='{"link_name":"True Stories:Love Stories","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/true-stories/love/">Love Stories</a></li>
+	<li id="menu-item-49640" class="menu-item menu-item-type-taxonomy menu-item-object-category"><a data-analytics-metrics='{"link_name":"True Stories:Inspiring Stories","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/true-stories/inspiring/">Inspiring Stories</a></li>
+	<li id="menu-item-49642" class="menu-item menu-item-type-taxonomy menu-item-object-category"><a data-analytics-metrics='{"link_name":"True Stories:Amazing Survival Stories","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/true-stories/survival/">Amazing Survival Stories</a></li>
+</ul>
+</li>
+<li id="menu-item-65988" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="https://www.rd.com/jokes/">Jokes</a>
+<ul class="sub-menu">
+	<li id="menu-item-92142" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Jokes:Knock-Knock Jokes","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/jokes/knock-knock/">Knock-Knock Jokes</a></li>
+	<li id="menu-item-92143" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Jokes:Corny Jokes","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/jokes/corny/">Corny Jokes</a></li>
+	<li id="menu-item-92144" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Jokes:Funny One-Liners","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/jokes/one-liners/">Funny One-Liners</a></li>
+	<li id="menu-item-65991" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Jokes:Riddles","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/jokes/riddles/">Riddles</a></li>
+	<li id="menu-item-65989" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Jokes:All Funny Jokes","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/jokes/">All Funny Jokes</a></li>
+	<li id="menu-item-65990" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Jokes:Cartoons","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/cartoons/">Cartoons</a></li>
+	<li id="menu-item-117768" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Jokes:Funny Stuff","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/funny-stuff/">Funny Stuff</a></li>
+	<li id="menu-item-80085" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Jokes:Submit Your Joke","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/submit-joke/">Submit Your Joke</a></li>
+	<li id="menu-item-324267" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Jokes:Cartoon Submissions","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/cartoon-submissions/">Cartoon Submissions</a></li>
+</ul>
+</li>
+<li id="menu-item-766816" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Videos","link_module":"header","link_pos":"main navigation"}' href="https://www.rd.com/videos/">Videos</a></li>
+<li id="menu-item-85136" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="http://games.rd.com">Games</a>
+<ul class="sub-menu">
+	<li id="menu-item-51251" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Games:Free Online Games","link_module":"header","link_pos":"drop down navigation"}' href="http://games.rd.com">Free Online Games</a></li>
+	<li id="menu-item-51252" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Games:Sweepstakes and Prizes","link_module":"header","link_pos":"drop down navigation"}' href="https://www.rd.com/sweepstakes-prizes/">Sweepstakes and Prizes</a></li>
+</ul>
+</li>
+<li id="menu-item-225934" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag"><a data-analytics-metrics='{"link_name":"Contests","link_module":"header","link_pos":"main navigation"}' href="https://www.rd.com/sweepstakes-prizes/">Contests</a></li>
+<li id="menu-item-49696" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Shop","link_module":"header","link_pos":"main navigation"}' href="http://www.readersdigeststore.com/">Shop</a></li>
+<li id="menu-item-569470" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Subscribe","link_module":"header","link_pos":"main navigation"}' href="https://order.readersdigest.com/servlet/OrdersGateway?cds_mag_code=RDA&amp;cds_page_id=212947&amp;cds_response_key=IW7ADU101">Subscribe</a></li>
+<li id="menu-item-569472" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Newsletters","link_module":"header","link_pos":"main navigation"}' href="https://www.rd.com/newsletters">Newsletters</a></li>
+</ul></div>		</div>
+		<!-- .toh-site-menu-wrapper -->
+				<!-- .toh-secondary-menu -->
+	</div>
+	<!-- .toh-menu-wrapper -->
+
+	<a data-analytics-metrics='{"link_name":"home logo","link_module":"header","link_pos":"secondary navigation"}' href="https://www.rd.com" class="header-logo"><span class="screen-reader-text">Home</span></a>
+	<!-- .header-logo -->
+<div class="menu-desktop-focus-menu-container"><ul id="menu-desktop-focus-menu" class="focus-menu"><li id="menu-item-569409" class="menu-item menu-item-type-taxonomy menu-item-object-category current-listicle-ancestor"><a data-analytics-metrics='{"link_name":"Health","link_module":"header","link_pos":"main navigation"}' href="https://www.rd.com/health/">Health</a></li>
+<li id="menu-item-569474" class="menu-item menu-item-type-taxonomy menu-item-object-category"><a data-analytics-metrics='{"link_name":"Food","link_module":"header","link_pos":"main navigation"}' href="https://www.rd.com/food/">Food</a></li>
+<li id="menu-item-569400" class="menu-item menu-item-type-taxonomy menu-item-object-category"><a data-analytics-metrics='{"link_name":"Advice","link_module":"header","link_pos":"main navigation"}' href="https://www.rd.com/advice/">Advice</a></li>
+<li id="menu-item-569403" class="menu-item menu-item-type-taxonomy menu-item-object-category"><a data-analytics-metrics='{"link_name":"Culture","link_module":"header","link_pos":"main navigation"}' href="https://www.rd.com/culture/">Culture</a></li>
+<li id="menu-item-569412" class="menu-item menu-item-type-taxonomy menu-item-object-category"><a data-analytics-metrics='{"link_name":"True Stories","link_module":"header","link_pos":"main navigation"}' href="https://www.rd.com/true-stories/">True Stories</a></li>
+<li id="menu-item-569414" class="menu-item menu-item-type-post_type_archive menu-item-object-joke"><a data-analytics-metrics='{"link_name":"Jokes","link_module":"header","link_pos":"main navigation"}' href="https://www.rd.com/jokes/">Jokes</a></li>
+<li id="menu-item-569413" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Videos","link_module":"header","link_pos":"main navigation"}' href="https://www.rd.com/videos/">Videos</a></li>
+</ul></div>	<!-- .focus-menu -->
+
+
+	<div class="toh-search-form">
+		<form data-analytics-metrics='{"link_name":"search","link_module":"header","link_pos":"search bar"}' action="https://www.rd.com" id="toh-search-form-wrapper">
+			<label for="search" class="screen-reader-text">Search</label>
+			<input type="text" id="search" name="s" />
+			<input type="submit" value="Search">
+			<div class="close-btn"><span class="dashicons dashicons-no"></span> </div>
+		</form>
+		<button class="toh-search-button" id="toh-search-toggle"><span class="screen-reader-text">Toggle Search</span></button>
+	</div>
+	<!-- .toh-search-form -->
+
+<div id="subscribe-to-magazine-sticky">
+	<a data-analytics-metrics='{"link_name":"subscribe","link_module":"header","link_pos":"secondary navigation"}' href="https://order.readersdigest.com/servlet/OrdersGateway?cds_mag_code=RDA&cds_page_id=212947&cds_response_key=IW7ADU101" class="subscribe-header-cta appears-on-stick">
+		<img class="subscribe-logo" src="https://www.rd.com/wp-content/themes/tmbi-theme-v3/images/subscribe-to-the-mag-rd-sticky.png"  alt="Subscribe">
+	</a>
+</div>
+	<!-- .subscribe-header-cta.appears-on-stick END logged-out users -->
+
+</div></header><div class="header-banner-container"><a data-analytics-metrics='{"link_name":"Do you live in the Nicest Place in America?","link_module":"header","link_pos":"internal promotion"}' href="https://www.10best.com/awards/travel/readers-digest-nicest/" target="_blank"><span class="header-banner-text">Do you live in the Nicest Place in America?<span class="chevron">&rsaquo;</span></span></a></div><div class="site-inner">
+<!-- Ad Start:LEADER_BOARD_PLACEMENT -->
+<div class="ad-wrapper-sticky" data-ad="leaderboard" >
+<div id='div-gpt-ad-1370019314148-20' style='display:none; margin: 0 auto;' class='ad-container'>
+</div>
+</div>
+<!-- Ad End:LEADER_BOARD_PLACEMENT -->
+
+<!-- Ad Start:BEFORE_CONTENT_PLACEMENT -->
+<div class="ad-wrapper ad-leaderboard" data-ad="prearticle" >
+<div id='div-gpt-ad-1370019314148-25' style='display:none; margin: 0 auto;' class='ad-container'>
+</div>
+</div>
+<!-- Ad End:BEFORE_CONTENT_PLACEMENT -->
+<div class="content-sidebar-wrap"><main class="content" id="genesis-content"><article class="post-300810 listicle type-listicle status-publish has-post-thumbnail category-wellness category-healthcare tag-living-well source-original tmbi_first_associated-rd-com entry"><header class="entry-header"><div class="rdu-sharing social-sharing listicle"><div class="addthis_toolbox addthis_default_style addthis_32x32_style"><a class="addthis_button_email"   addthis:title="12 Insider Tips for Choosing the Best Primary Care Doctor" data-analytics-metrics='{"link_name":"email","link_module":"social share","link_pos":"left sticky nav"}'></a><a class="addthis_button_facebook"   addthis:title="12 Insider Tips for Choosing the Best Primary Care Doctor" addthis:media="https://www.rd.com/wp-content/uploads/2017/09/02_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_519507367_Stokkete.jpg" data-analytics-metrics='{"link_name":"facebook","link_module":"social share","link_pos":"left sticky nav"}'></a><a class="addthis_button_twitter"  data-analytics-metrics='{"link_name":"twitter","link_module":"social share","link_pos":"left sticky nav"}' addthis:title="12 Insider Tips for Choosing the Best Primary Care Doctor" addthis:media="https://www.rd.com/wp-content/uploads/2017/09/02_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_519507367_Stokkete.jpg"></a></div></div></header><div class="entry-content" id="collection-wrapper">			<a data-analytics-metrics='{"link_name":"view as slideshow","link_module":"slideshows","link_pos":"header"}' class="listicle-switch -slideshow" href="https://www.rd.com/health/wellness/tips-choosing-primary-care-doctor/">
+				<i class="fa fa-caret-square-o-right"></i> View as slideshow			</a>
+			<section class="listicle-page-group-container">
+<div class="listicle-page-container"><a href="https://www.rd.com/health/wellness/" data-analytics-metrics= '{"link_name":"Everyday Wellness","link_module":"content navigation","link_pos":"breadcrumb"}'></p>
+<h4 class="post-category-label">Everyday Wellness</h4>
+<p></a></p>
+<h1 class="entry-title">12 Insider Tips for Choosing the Best Primary Care Doctor</h1>
+<div class="byline"><img class="avatar" src="https://1.gravatar.com/avatar/134118be4d01245590ecf66fad26d0d9?s=75&amp;d=mm&amp;r=g"><span class="post-author">Tina Donvito</span><span class="post-author-position"></span><span class="post-published-date">Oct 03</span></div>
+<div class="dek">
+<h2>Your primary care physician is possibly your most important health care professional. Don&#8217;t just pick a name off your insurance&#8217;s list—here&#8217;s what the experts suggest.</p>
+</h2>
+</div>
+<div id="sponsor_ad_section">
+<div id ="sponsor-ad-3354191758" class = "ad-wrapper" data-ad="sponsor-logo"></div>
+</div>
+<div class="listicle-page">
+<h2>Consider location, location, location</h2>
+<p><img class="aligncenter wp-image-301610 size-listicle-full" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAEALAAAAAABAAEAAAICTAEAOw==" data-original-src="https://www.rd.com/wp-content/uploads/2017/09/01_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_63112756_Konstantin-L-760x506.jpg" alt="Hospital" width="640" height="426" data-image-analytics='{"licensorName":"Shutterstock","credits":"Konstantin L\/Shutterstock"}'  srcset="https://www.rd.com/wp-content/uploads/2017/09/01_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_63112756_Konstantin-L-150x150.jpg 150w, https://www.rd.com/wp-content/uploads/2017/09/01_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_63112756_Konstantin-L-1200x1200.jpg 1200w, https://www.rd.com/wp-content/uploads/2017/09/01_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_63112756_Konstantin-L-696x696.jpg 696w, https://www.rd.com/wp-content/uploads/2017/09/01_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_63112756_Konstantin-L-348x348.jpg 348w, https://www.rd.com/wp-content/uploads/2017/09/01_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_63112756_Konstantin-L-700x700.jpg 700w, https://www.rd.com/wp-content/uploads/2017/09/01_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_63112756_Konstantin-L-400x400.jpg 400w" data-image-analytics='{"licensorName":"Shutterstock","credits":"Konstantin L\/Shutterstock"}' /><span class="credits-overlay"><span class="image-credit">Konstantin L/Shutterstock</span></span></p>
+<p>It might not seem like a big deal to travel 45 minutes to <a href="https://www.rd.com/health/wellness/find-a-doctor/1">find a doctor you can trust</a>—but it might when you&#8217;re really sick and can barely muster energy to get out of bed. &#8220;Location matters because of convenience, and you never want to underestimate convenience,&#8221; says Paula Muto, MD, CEO and founder of <a class="SWhtmlLink" href="http://www.uber-docs.com/" target="_blank" rel="noopener">UBERDOC</a>. &#8220;When you need a doctor, you don&#8217;t want to travel far, especially if you need to schedule a visit more than once year.&#8221; One <a class="SWhtmlLink" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5178808/" target="_blank" rel="noopener">study</a> from the University of Michigan Medical School found that patients had a greater disease burden as their distance from their primary care physician increased.</p>
+</div>
+<div class="listicle-page">
+<h2>Check the type of doctor</h2>
+<p><img class="aligncenter wp-image-301611 size-listicle-full" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAEALAAAAAABAAEAAAICTAEAOw==" data-original-src="https://www.rd.com/wp-content/uploads/2017/09/02_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_519507367_Stokkete-760x506.jpg" alt="doctor" width="640" height="426" data-image-analytics='{"licensorName":"Shutterstock","credits":"Stokkete\/Shutterstock"}'  srcset="https://www.rd.com/wp-content/uploads/2017/09/02_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_519507367_Stokkete-150x150.jpg 150w, https://www.rd.com/wp-content/uploads/2017/09/02_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_519507367_Stokkete-1200x1200.jpg 1200w, https://www.rd.com/wp-content/uploads/2017/09/02_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_519507367_Stokkete-696x696.jpg 696w, https://www.rd.com/wp-content/uploads/2017/09/02_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_519507367_Stokkete-348x348.jpg 348w, https://www.rd.com/wp-content/uploads/2017/09/02_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_519507367_Stokkete-700x700.jpg 700w, https://www.rd.com/wp-content/uploads/2017/09/02_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_519507367_Stokkete-400x400.jpg 400w" data-image-analytics='{"licensorName":"Shutterstock","credits":"Stokkete\/Shutterstock"}' /><span class="credits-overlay"><span class="image-credit">Stokkete/Shutterstock</span></span></p>
+<p>Even if you can <a href="https://www.rd.com/health/healthcare/difference-between-a-do-and-an-md/1">tell the difference between a DO and an MD</a>, you might not know the difference between family medicine and internal medicine. &#8220;The differences in training fosters unique skill sets between the two specialties that patients can consider when choosing a primary care doctor,&#8221; says Lindsay Nakaishi, MD, MPH, chief resident at the UPMC Shadyside Family Health Center. &#8220;Family medicine practitioners care for patients of all ages from birth to death, which can include prenatal, obstetric, gynecologic, pediatric, adult, and geriatric care. Internal medicine providers typically offer care for adults starting at 18 years old, and may refer out to an OBGYN provider for women&#8217;s healthcare needs.&#8221; Family practitioners may focus on disease prevention, but internal medicine doctors often have a subspecialty—so if you have a particular health problem, seek out one who knows your issue. Also, although you might refer to your primary care physician as a GP (general practitioner), that&#8217;s not an actual specialty requiring a board certification.</p>
+</div>
+<div class="listicle-page">
+<h2>See how available they are</h2>
+<p><img class="aligncenter wp-image-301612 size-listicle-full" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAEALAAAAAABAAEAAAICTAEAOw==" data-original-src="https://www.rd.com/wp-content/uploads/2017/09/03_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_369925340_RoomsStudio-760x506.jpg" alt="calendar" width="640" height="426" data-image-analytics='{"licensorName":"Shutterstock","credits":"RoomsStudio\/Shutterstock"}'  srcset="https://www.rd.com/wp-content/uploads/2017/09/03_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_369925340_RoomsStudio-150x150.jpg 150w, https://www.rd.com/wp-content/uploads/2017/09/03_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_369925340_RoomsStudio-1200x1200.jpg 1200w, https://www.rd.com/wp-content/uploads/2017/09/03_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_369925340_RoomsStudio-696x696.jpg 696w, https://www.rd.com/wp-content/uploads/2017/09/03_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_369925340_RoomsStudio-348x348.jpg 348w, https://www.rd.com/wp-content/uploads/2017/09/03_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_369925340_RoomsStudio-700x700.jpg 700w, https://www.rd.com/wp-content/uploads/2017/09/03_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_369925340_RoomsStudio-400x400.jpg 400w" data-image-analytics='{"licensorName":"Shutterstock","credits":"RoomsStudio\/Shutterstock"}' /><span class="credits-overlay"><span class="image-credit">RoomsStudio/Shutterstock</span></span></p>
+<p>You want to <a href="https://www.rd.com/health/wellness/doctor-appointment-tips/1">make the most of your next doctor&#8217;s appointment</a>, but it can be really frustrating when you have to wait months to get in. Again, convenience plays a role here, although it might not have to do with the quality of care you receive. &#8220;Some providers may have a limited schedule with fewer available appointments, resulting in longer wait times for routine appointments,&#8221; says Ida Tuwatananurak, DO, chief resident at the UPMC Shadyside Family Health Center. &#8220;However, patients may want to choose a doctor whose practice can see them within one to two days—or same day—for acute concerns.&#8221; In general, it&#8217;s best to see a primary care doctor who knows you, rather than having to go to an urgent care or the ER.</p>
+</div>
+</div>
+<aside class="ad-wrapper">
+<div class="sidebar-sticky-wrapper">
+<div class="ad-wrapper ad-sidebar-top adunit-lazy" data-ad="ad-sidebar-top">
+<div id='div-gpt-ad-1370019314148-02' style='display:none; margin: 0 auto;' class='ad-container'>
+</div>
+</div>
+</div>
+</aside>
+</section>
+<div id="listicle-between-cards-ad-1" class="listicle-top-adunit-lazy" data-ad="listicle-top-adunit-lazy"></div>
+<section class="listicle-page-group-container">
+<div class="listicle-page-container">
+<div class="listicle-page">
+<h2>Remember your time is valuable, too</h2>
+<p><img class="aligncenter wp-image-301613 size-listicle-full" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAEALAAAAAABAAEAAAICTAEAOw==" data-original-src="https://www.rd.com/wp-content/uploads/2017/09/04_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_602204207_SydaProductions-760x506.jpg" alt="time" width="640" height="426" data-image-analytics='{"licensorName":"Shutterstock","credits":"SydaProductions\/Shutterstock"}'  srcset="https://www.rd.com/wp-content/uploads/2017/09/04_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_602204207_SydaProductions-150x150.jpg 150w, https://www.rd.com/wp-content/uploads/2017/09/04_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_602204207_SydaProductions-1200x1200.jpg 1200w, https://www.rd.com/wp-content/uploads/2017/09/04_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_602204207_SydaProductions-696x696.jpg 696w, https://www.rd.com/wp-content/uploads/2017/09/04_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_602204207_SydaProductions-348x348.jpg 348w, https://www.rd.com/wp-content/uploads/2017/09/04_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_602204207_SydaProductions-700x700.jpg 700w, https://www.rd.com/wp-content/uploads/2017/09/04_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_602204207_SydaProductions-400x400.jpg 400w" data-image-analytics='{"licensorName":"Shutterstock","credits":"SydaProductions\/Shutterstock"}' /><span class="credits-overlay"><span class="image-credit">SydaProductions/Shutterstock</span></span></p>
+<p>There are some <a class="SWhtmlLink" href="https://www.rd.com/health/wellness/things-not-to-do-before-doctor-appointment/1/">things you shouldn&#8217;t do before a doctor&#8217;s appointment</a>, and one of them is arrive late, because they might not hold your appointment slot. But once you get there, you might be the one waiting—another frustration for busy people. &#8220;Sometimes the wait is not the fault of the doctor—it could be the office procedures holding things up,&#8221; says Dr. Muto. &#8220;But, if there are few people in the waiting room, it&#8217;s probably the doctor.&#8221; Taking time with patients is great, but if it&#8217;s a consistent problem, it might be time to find someone who makes, and sticks to, a more realistic schedule.</p>
+</div>
+<div class="listicle-page">
+<h2>The receptionist can be the gatekeeper</h2>
+<p><img class="aligncenter wp-image-301614 size-listicle-full" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAEALAAAAAABAAEAAAICTAEAOw==" data-original-src="https://www.rd.com/wp-content/uploads/2017/09/05_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_292901984_DragonImages-760x506.jpg" alt="office" width="640" height="426" data-image-analytics='{"licensorName":"Shutterstock","credits":"DragonImages\/Shutterstock"}'  srcset="https://www.rd.com/wp-content/uploads/2017/09/05_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_292901984_DragonImages-150x150.jpg 150w, https://www.rd.com/wp-content/uploads/2017/09/05_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_292901984_DragonImages-1200x1200.jpg 1200w, https://www.rd.com/wp-content/uploads/2017/09/05_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_292901984_DragonImages-696x696.jpg 696w, https://www.rd.com/wp-content/uploads/2017/09/05_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_292901984_DragonImages-348x348.jpg 348w, https://www.rd.com/wp-content/uploads/2017/09/05_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_292901984_DragonImages-700x700.jpg 700w, https://www.rd.com/wp-content/uploads/2017/09/05_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_292901984_DragonImages-400x400.jpg 400w" data-image-analytics='{"licensorName":"Shutterstock","credits":"DragonImages\/Shutterstock"}' /><span class="credits-overlay"><span class="image-credit">DragonImages/Shutterstock</span></span></p>
+<p>One trick for how to find a good doctor is to make nice with the support team. &#8220;We never want to underestimate the importance of the office staff, because often times they will be the ones to arrange any follow-up appointments, visits, or care that is needed,&#8221; says Dr. Muto. So if the receptionist is always unfriendly, you might want to think twice about continuing to go there—but first, ask your doctor about it when you do get in to see her. &#8220;There are many reasons a practice may seem disorganized or unhelpful—for example, the practice may be understaffed, the workers may be in the process of training, the practice may be transitioning leadership, or the staff could just be having a bad day,&#8221; Dr. Nakaishi says. &#8220;Patients can talk to their doctor about any concerns with how the office is functioning so they can actively work on remedying the issues.&#8221;</p>
+</div>
+<div class="listicle-page">
+<h2>You should be comfortable opening up</h2>
+<p><img class="aligncenter wp-image-301615 size-listicle-full" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAEALAAAAAABAAEAAAICTAEAOw==" data-original-src="https://www.rd.com/wp-content/uploads/2017/09/06_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_524468359_igorstevanovic-760x506.jpg" alt="doctor" width="640" height="426" data-image-analytics='{"licensorName":"Shutterstock","credits":"igorstevanovic\/Shutterstock"}'  srcset="https://www.rd.com/wp-content/uploads/2017/09/06_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_524468359_igorstevanovic-150x150.jpg 150w, https://www.rd.com/wp-content/uploads/2017/09/06_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_524468359_igorstevanovic-1200x1200.jpg 1200w, https://www.rd.com/wp-content/uploads/2017/09/06_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_524468359_igorstevanovic-696x696.jpg 696w, https://www.rd.com/wp-content/uploads/2017/09/06_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_524468359_igorstevanovic-348x348.jpg 348w, https://www.rd.com/wp-content/uploads/2017/09/06_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_524468359_igorstevanovic-700x700.jpg 700w, https://www.rd.com/wp-content/uploads/2017/09/06_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_524468359_igorstevanovic-400x400.jpg 400w" data-image-analytics='{"licensorName":"Shutterstock","credits":"igorstevanovic\/Shutterstock"}' /><span class="credits-overlay"><span class="image-credit">igorstevanovic/Shutterstock</span></span></p>
+<p>You want to be able to really communicate with your doctor, and you can&#8217;t do that if you don&#8217;t feel comfortable divulging private, and possibly embarrassing, info. &#8220;Medicine is a contact sport based on trust and communication,&#8221; says Dr. Muto. &#8220;If you&#8217;re uncomfortable, it may be hard for you to convey a symptom to your doctor.&#8221; For a specialist who might be the only person who can perform what you need done, you might be willing to accept a lack of bedside manner. But for your primary care doctor, choose one you feel at ease with.</p>
+</div>
+</div>
+<aside class="ad-wrapper">
+<div class="sidebar-sticky-wrapper">
+<div class="ad-wrapper ad-sidebar-middle adunit-lazy" data-ad="ad-sidebar-middle">
+<div id='div-gpt-ad-1370019314148-04' style='display:none;' class='ad-container'>
+</div>
+</div>
+</div>
+</aside>
+</section>
+<div id="listicle-between-cards-ad-2" class="listicle-middle-adunit-lazy" data-ad="listicle-middle-adunit-lazy"></div>
+<section class="listicle-page-group-container">
+<div class="listicle-page-container">
+<div class="listicle-page">
+<h2>Your doctor shouldn&#8217;t make you feel rushed</h2>
+<p><img class="aligncenter wp-image-301616 size-listicle-full" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAEALAAAAAABAAEAAAICTAEAOw==" data-original-src="https://www.rd.com/wp-content/uploads/2017/09/07_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_430385620_uzhursky-760x506.jpg" alt="doctor" width="640" height="426" data-image-analytics='{"licensorName":"Shutterstock","credits":"uzhursky\/Shutterstock"}'  srcset="https://www.rd.com/wp-content/uploads/2017/09/07_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_430385620_uzhursky-150x150.jpg 150w, https://www.rd.com/wp-content/uploads/2017/09/07_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_430385620_uzhursky-1200x1200.jpg 1200w, https://www.rd.com/wp-content/uploads/2017/09/07_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_430385620_uzhursky-696x696.jpg 696w, https://www.rd.com/wp-content/uploads/2017/09/07_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_430385620_uzhursky-348x348.jpg 348w, https://www.rd.com/wp-content/uploads/2017/09/07_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_430385620_uzhursky-700x700.jpg 700w, https://www.rd.com/wp-content/uploads/2017/09/07_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_430385620_uzhursky-400x400.jpg 400w" data-image-analytics='{"licensorName":"Shutterstock","credits":"uzhursky\/Shutterstock"}' /><span class="credits-overlay"><span class="image-credit">uzhursky/Shutterstock</span></span></p>
+<p>Another one of the best <a href="https://www.rd.com/health/wellness/good-doctor-bad-doctor/">signs your doctor is a keeper</a>? You leave feeling your doctor listened to you and answered all your questions. A recent <a class="SWhtmlLink" href="http://www.medscape.com/features/slideshow/compensation/2016/public/overview?src=wnl_physrep_160401_mscpedit&amp;uac=232148CZ&amp;impID=1045700&amp;faf=1" target="_blank" rel="noopener">report</a> showed that doctors spend an average of 13 to 16 minutes per patient—not much time for a doctor you only see once a year. Another <a class="SWhtmlLink" href="https://www.ncbi.nlm.nih.gov/pubmed/11456245" target="_blank" rel="noopener">study</a> found doctors let patients speak for just 12 seconds before interrupting them. &#8220;When the right fit is found, patients should leave the appointment satisfied that their questions were addressed with patience, sincerity, and candor,&#8221; Dr. Tuwatananurak says. &#8220;The &#8216;right&#8217; doctor fosters a patient-physician relationship in which patients are comfortable disclosing their most intimate health concerns, can freely and easily communicate with the provider, and can partner with their doctor to come up with a treatment plan that&#8217;s most appropriate and helpful for the patient.&#8221;</p>
+</div>
+<div class="listicle-page">
+<h2>Think about gender preference</h2>
+<p><img class="aligncenter wp-image-301617 size-listicle-full" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAEALAAAAAABAAEAAAICTAEAOw==" data-original-src="https://www.rd.com/wp-content/uploads/2017/09/08_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_676258675_Roman-Kosolapov-760x506.jpg" alt="doctor" width="640" height="426" data-image-analytics='{"licensorName":"Shutterstock","credits":"Roman Kosolapov\/Shutterstock"}'  srcset="https://www.rd.com/wp-content/uploads/2017/09/08_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_676258675_Roman-Kosolapov-150x150.jpg 150w, https://www.rd.com/wp-content/uploads/2017/09/08_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_676258675_Roman-Kosolapov-1200x1200.jpg 1200w, https://www.rd.com/wp-content/uploads/2017/09/08_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_676258675_Roman-Kosolapov-696x696.jpg 696w, https://www.rd.com/wp-content/uploads/2017/09/08_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_676258675_Roman-Kosolapov-348x348.jpg 348w, https://www.rd.com/wp-content/uploads/2017/09/08_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_676258675_Roman-Kosolapov-700x700.jpg 700w, https://www.rd.com/wp-content/uploads/2017/09/08_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_676258675_Roman-Kosolapov-400x400.jpg 400w" data-image-analytics='{"licensorName":"Shutterstock","credits":"Roman Kosolapov\/Shutterstock"}' /><span class="credits-overlay"><span class="image-credit">Roman Kosolapov/Shutterstock</span></span></p>
+<p>You don&#8217;t know <a href="https://www.rd.com/health/conditions/doctors-really-thinking/">what your doctor&#8217;s really thinking</a>, so you might feel more comfortable discussing certain issues with a doctor of the same sex. But it might not matter in terms of the actual care you receive. &#8220;The Harvard T.H. Chan School of Public Health published a <a class="SWhtmlLink" href="https://www.hsph.harvard.edu/news/press-releases/hospitalized-patients-female-physicians-lower-mortality-readmission/" target="_blank" rel="noopener">study</a> that demonstrated that patients 65 and older who are treated by female physicians have lower mortality and readmission rates within 30 days of discharge from the hospital,&#8221; Dr. Nakaishi says. &#8220;However, on an individual level, a doctor&#8217;s gender does not dictate his or her competency or compassion.&#8221;</p>
+</div>
+<div id="nativo1"></div>
+<div class="listicle-page">
+<h2>Ask a friend<img class="aligncenter wp-image-301618 size-listicle-full" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAEALAAAAAABAAEAAAICTAEAOw==" data-original-src="https://www.rd.com/wp-content/uploads/2017/09/09_friends_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_563773489_Iryna-Inshyna-760x506.jpg" alt="conversation" width="640" height="426" data-image-analytics='{"licensorName":"Shutterstock","credits":"Iryna Inshyna\/Shutterstock"}'  srcset="https://www.rd.com/wp-content/uploads/2017/09/09_friends_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_563773489_Iryna-Inshyna-150x150.jpg 150w, https://www.rd.com/wp-content/uploads/2017/09/09_friends_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_563773489_Iryna-Inshyna-1200x1200.jpg 1200w, https://www.rd.com/wp-content/uploads/2017/09/09_friends_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_563773489_Iryna-Inshyna-696x696.jpg 696w, https://www.rd.com/wp-content/uploads/2017/09/09_friends_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_563773489_Iryna-Inshyna-348x348.jpg 348w, https://www.rd.com/wp-content/uploads/2017/09/09_friends_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_563773489_Iryna-Inshyna-700x700.jpg 700w, https://www.rd.com/wp-content/uploads/2017/09/09_friends_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_563773489_Iryna-Inshyna-400x400.jpg 400w" data-image-analytics='{"licensorName":"Shutterstock","credits":"Iryna Inshyna\/Shutterstock"}' /><span class="credits-overlay"><span class="image-credit">Iryna Inshyna/Shutterstock</span></span></p>
+</h2>
+<p>You might not want to <a href="https://www.rd.com/health/healthcare/trust-health-advice-internet/1/">trust the health advice you just found on the web</a>, but it&#8217;s a good idea to check out online reviews of your doctor. Better yet, ask someone you know in real life. &#8220;Personal referrals can be a great starting place when looking for a physician,&#8221; Dr. Tuwatananurak says. &#8220;Patients should seek referrals from friends or family who have similar values and priorities in choosing a primary care physician.&#8221; Referrals can help also patients find a doctor who may be more familiar with one disease or another, if that applies to you.</p>
+</div>
+</div>
+<aside class="ad-wrapper">
+<div class="sidebar-sticky-wrapper">
+<div id="listicle-between-cards-ad-1557387891" class="adunit-lazy sidebar-ad" data-ad="sidebar-ad" ></div>
+</div>
+</aside>
+</section>
+<div id="listicle-between-cards-ad-3" class="listicle-scroll-adunit-lazy" data-ad="listicle-scroll-adunit-lazy"></div>
+<section class="listicle-page-group-container">
+<div class="listicle-page-container">
+<div class="listicle-page">
+<h2>Technology can help<img class="aligncenter wp-image-301619 size-listicle-full" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAEALAAAAAABAAEAAAICTAEAOw==" data-original-src="https://www.rd.com/wp-content/uploads/2017/09/10_laptop_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_380601157_SFIO-CRACHO-760x506.jpg" alt="laptop" width="640" height="426" data-image-analytics='{"licensorName":"Shutterstock","credits":"SFIO CRACHO\/Shutterstock"}'  srcset="https://www.rd.com/wp-content/uploads/2017/09/10_laptop_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_380601157_SFIO-CRACHO-150x150.jpg 150w, https://www.rd.com/wp-content/uploads/2017/09/10_laptop_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_380601157_SFIO-CRACHO-1200x1200.jpg 1200w, https://www.rd.com/wp-content/uploads/2017/09/10_laptop_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_380601157_SFIO-CRACHO-696x696.jpg 696w, https://www.rd.com/wp-content/uploads/2017/09/10_laptop_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_380601157_SFIO-CRACHO-348x348.jpg 348w, https://www.rd.com/wp-content/uploads/2017/09/10_laptop_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_380601157_SFIO-CRACHO-700x700.jpg 700w, https://www.rd.com/wp-content/uploads/2017/09/10_laptop_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_380601157_SFIO-CRACHO-400x400.jpg 400w" data-image-analytics='{"licensorName":"Shutterstock","credits":"SFIO CRACHO\/Shutterstock"}' /><span class="credits-overlay"><span class="image-credit">SFIO CRACHO/Shutterstock</span></span></p>
+</h2>
+<p>Medical advances are <a href="https://www.rd.com/health/conditions/medical-advances-2016/1/">giving us hope all over the place</a>, and your doctor may be following suit on an individual level by creating a more tech-savvy practice to better assist patients. Keeping electronic records to avoid having to ask for paper copies, having a patient website with all info available, and allowing patients to contact them by email are all positives when choosing a doctor—as long as it doesn&#8217;t replace actual interaction. &#8220;A truly genuine doctor-patient relationship is based on a personal level,&#8221; Dr. Muto says. &#8220;Technology helps in how we communicate, but it shouldn&#8217;t replace or change the need for communication.&#8221;</p>
+</div>
+<div class="listicle-page">
+<h2>A shabby office is ok<img class="aligncenter wp-image-301620 size-listicle-full" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAEALAAAAAABAAEAAAICTAEAOw==" data-original-src="https://www.rd.com/wp-content/uploads/2017/09/11_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_140722669_cambo-photography-760x506.jpg" alt="doctors-office" width="640" height="426" data-image-analytics='{"licensorName":"Shutterstock","credits":"cambo photography\/Shutterstock"}'  srcset="https://www.rd.com/wp-content/uploads/2017/09/11_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_140722669_cambo-photography-150x150.jpg 150w, https://www.rd.com/wp-content/uploads/2017/09/11_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_140722669_cambo-photography-1200x1200.jpg 1200w, https://www.rd.com/wp-content/uploads/2017/09/11_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_140722669_cambo-photography-696x696.jpg 696w, https://www.rd.com/wp-content/uploads/2017/09/11_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_140722669_cambo-photography-348x348.jpg 348w, https://www.rd.com/wp-content/uploads/2017/09/11_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_140722669_cambo-photography-700x700.jpg 700w, https://www.rd.com/wp-content/uploads/2017/09/11_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_140722669_cambo-photography-400x400.jpg 400w" data-image-analytics='{"licensorName":"Shutterstock","credits":"cambo photography\/Shutterstock"}' /><span class="credits-overlay"><span class="image-credit">cambo photography/Shutterstock</span></span></p>
+</h2>
+<p>Funny things <a href="https://www.rd.com/funny-stuff/funny-doctor-jokes/1">can happen at the doctor&#8217;s office</a>—but you probably don&#8217;t want the office itself to look funny. Nice decor, though, doesn&#8217;t necessarily mean the office is well-run or the doctor is better than one whose office has seen better days. &#8220;It could mean that the doctor is investing their resources back to patient care,&#8221; Dr. Muto says. &#8220;Does a high-tech classroom make a better teacher? You can still teach with a blackboard and chalk.&#8221; Although it doesn&#8217;t give a good first impression, a rundown office isn&#8217;t necessarily a sign to run the other way—<a href="https://www.rd.com/health/healthcare/hospital-pagers/">going old-school</a> can be ok, too.</p>
+</div>
+<div class="listicle-page">
+<h2>Check the hospital</h2>
+<p><img class="aligncenter wp-image-301621 size-listicle-full" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAEALAAAAAABAAEAAAICTAEAOw==" data-original-src="https://www.rd.com/wp-content/uploads/2017/09/12_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_156022646_Spotmatik-Ltd-760x506.jpg" alt="hospital" width="640" height="426" data-image-analytics='{"licensorName":"Shutterstock","credits":"Spotmatik Ltd\/Shutterstock"}'  srcset="https://www.rd.com/wp-content/uploads/2017/09/12_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_156022646_Spotmatik-Ltd-150x150.jpg 150w, https://www.rd.com/wp-content/uploads/2017/09/12_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_156022646_Spotmatik-Ltd-1200x1200.jpg 1200w, https://www.rd.com/wp-content/uploads/2017/09/12_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_156022646_Spotmatik-Ltd-696x696.jpg 696w, https://www.rd.com/wp-content/uploads/2017/09/12_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_156022646_Spotmatik-Ltd-348x348.jpg 348w, https://www.rd.com/wp-content/uploads/2017/09/12_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_156022646_Spotmatik-Ltd-700x700.jpg 700w, https://www.rd.com/wp-content/uploads/2017/09/12_doctor_Insider-Tips-to-Choosing-the-Best-Primary-Care-Doctor_156022646_Spotmatik-Ltd-400x400.jpg 400w" data-image-analytics='{"licensorName":"Shutterstock","credits":"Spotmatik Ltd\/Shutterstock"}' /><span class="credits-overlay"><span class="image-credit">Spotmatik Ltd/Shutterstock</span></span></p>
+<p>Hopefully you won&#8217;t have a need to <a href="https://www.rd.com/health/conditions/hospital-safety-secrets/1">find out the secrets hospitals don&#8217;t want to tell you</a>, but if you do have to go the hospital, it&#8217;s best if your primary care doctor has privileges at your preferred facility. Plus, if you need to see a specialist, they&#8217;ll be in the same hospital system. &#8220;Hospital systems often have central electronic medical record systems, and having access to all of the patient&#8217;s medical record can improve continuity, enhance communication between providers, and reduce healthcare costs,&#8221; Dr. Nakaishi says. &#8220;Ultimately, patients should choose a physician they can trust and based on their ability to provide high quality, evidence-based care.&#8221;</p>
+<p><script async='' type='text/javascript' src='//tracking.skyword.com/tracker.js?contentId=281474979794263'></script></div>
+</div>
+<aside class="ad-wrapper">
+<div class="sidebar-sticky-wrapper">
+<div id="listicle-between-cards-ad-2100448077" class="adunit-lazy sidebar-ad" data-ad="sidebar-ad" ></div>
+</div>
+</aside>
+</section>
+<link rel="prerender" href="https://www.rd.com/health/wellness/tips-choosing-primary-care-doctor/2/" />
+</div><div class="syndicated-post-info"><img src="https://placehold.it/32x22" alt="" /><a href="#">Originally Published on sitename.com</a></div><footer class="entry-footer"><div id="brand-container" class="brand-container"><div id="brand-img" class="brand-img"><a href="https://www.rd.com/" target="_blank"  data-analytics-metrics='{"link_name":"Readers Digest","link_module":"navigation","link_pos":"footer"}'><img src="https://www.rd.com/wp-content/plugins/tmbi-first-published-taxonomy/images/rd-com.gif"/></a></div><div id="brand-url" class="brand-url"><span class="brand-via">Originally Published on </span><a href="https://www.rd.com/" target="_blank"  data-analytics-metrics='{"link_name":"Readers Digest","link_module":"navigation","link_pos":"footer"}'>Readers Digest</a></div></div><div class="entry-copyright"><span class="byline source"></span></div><div id="oop_adhesive"><div id ="oop_adhesive-2322266707" class = "ad-wrapper oop_adhesive" data-ad="oop-adhesive"></div></div></footer></article><h2 class="screen-reader-text">Reader Interactions</h2><section class="taboola"><div class="taboola-container">
+<div id="taboola-below-slideshow-thumbnails"></div>
+</div><aside class="ad-wrapper"><div class="sidebar-sticky-wrapper"><div id="listicle-between-cards-ad-1720821515" class="adunit-lazy sidebar-ad" data-ad="sidebar-ad" ></div></div></aside></section></main></div></div>
+<!-- Ad Start:MOBILE_FOOTER_PLACEMENT -->
+<div class="ad-wrapper mobile_footer adunit-lazy" data-ad="postarticle" >
+<div id='div-gpt-ad-1370019314149-02' style='display:none; margin: 0 auto;' class='ad-container'>
+</div>
+</div>
+<!-- Ad End:MOBILE_FOOTER_PLACEMENT -->
+<footer class="site-footer"><div class="wrap"><div class="footer-left">
+	<div class="toh-newsletter footer-mobile">
+		<div class="toh-newsletter-cta-wrapper">
+			<div class="toh-newsletter-cta-description">
+				Enjoy the BEST stories, advice & jokes!			</div>
+			<a data-analytics-metrics='{"link_name":"subscribe","link_module":"footer","link_pos":"navigation"}' href="https://order.readersdigest.com/servlet/OrdersGateway?cds_mag_code=RDA&cds_page_id=212947&cds_response_key=IW7ADU101">
+				<img class="subscribe-logo" src="https://www.rd.com/wp-content/uploads/2018/05/subscribe-to-the-mag-rd-1.png" >
+			</a>
+		</div>
+	</div>
+	<div class="footer-left-top">
+		<div class="footer-logo-social">
+			<a data-analytics-metrics='{"link_name":"footer logo","link_module":"navigation","link_pos":"footer"}' class="footer-logo" href="https://www.rd.com"></a>
+			<ul id="menu-footer-social" class="footer-social-links"><li id="menu-item-397208" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" data-analytics-metrics='{"link_name":"facebook","link_module":"footer","link_pos":"follow us"}' href="https://www.facebook.com/ReadersDigest"><i class="fa fa-facebook-square"></i></a></li>
+<li id="menu-item-397211" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" data-analytics-metrics='{"link_name":"twitter","link_module":"footer","link_pos":"follow us"}' href="https://twitter.com/readersdigest"><i class="fa fa-twitter"></i></a></li>
+<li id="menu-item-397212" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" data-analytics-metrics='{"link_name":"pinterest","link_module":"footer","link_pos":"follow us"}' href="https://www.pinterest.com/readersdigest/"><i class="fa fa-pinterest"></i></a></li>
+<li id="menu-item-397215" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" data-analytics-metrics='{"link_name":"youtube","link_module":"footer","link_pos":"follow us"}' href="https://www.youtube.com/readersdigest"><i class="fa fa-youtube"></i></a></li>
+<li id="menu-item-397217" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" data-analytics-metrics='{"link_name":"instagram","link_module":"footer","link_pos":"follow us"}' href="https://instagram.com/readersdigest"><i class="fa fa-instagram"></i></a></li>
+<li id="menu-item-397221" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" data-analytics-metrics='{"link_name":"newsletter signup","link_module":"footer","link_pos":"follow us"}' href="https://www.rd.com/newsletters"><i class="fa fa-envelope"></i></a></li>
+</ul>		</div>
+		<ul id="menu-footer-site-links" class="footer-site-links"><li id="menu-item-569435" class="menu-item menu-item-type-taxonomy menu-item-object-category current-listicle-ancestor menu-item-569435"><a href="https://www.rd.com/health/" data-analytics-metrics='{"link_name":"Health","link_module":"footer","link_pos":"navigation"}'>Health</a></li>
+<li id="menu-item-569438" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-569438"><a href="https://www.rd.com/food/" data-analytics-metrics='{"link_name":"Food","link_module":"footer","link_pos":"navigation"}'>Food</a></li>
+<li id="menu-item-569441" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-569441"><a href="https://www.rd.com/advice/" data-analytics-metrics='{"link_name":"Advice","link_module":"footer","link_pos":"navigation"}'>Advice</a></li>
+<li id="menu-item-569442" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-569442"><a href="https://www.rd.com/culture/" data-analytics-metrics='{"link_name":"Culture","link_module":"footer","link_pos":"navigation"}'>Culture</a></li>
+<li id="menu-item-569443" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-569443"><a href="https://www.rd.com/true-stories/" data-analytics-metrics='{"link_name":"True Stories","link_module":"footer","link_pos":"navigation"}'>True Stories</a></li>
+</ul><ul class="footer-site-links"><li id="menu-item-569444" class="menu-item menu-item-type-post_type_archive menu-item-object-joke menu-item-569444"><a href="https://www.rd.com/jokes/" data-analytics-metrics='{"link_name":"Jokes","link_module":"footer","link_pos":"navigation"}'>Jokes</a></li>
+<li id="menu-item-569447" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-569447"><a href="https://games.rd.com/" data-analytics-metrics='{"link_name":"Games","link_module":"footer","link_pos":"navigation"}'>Games</a></li>
+<li id="menu-item-569448" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-569448"><a href="https://www.rd.com/sweepstakes-prizes/" data-analytics-metrics='{"link_name":"Contests","link_module":"footer","link_pos":"navigation"}'>Contests</a></li>
+<li id="menu-item-569450" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-569450"><a href="https://www.readersdigeststore.com/" data-analytics-metrics='{"link_name":"Shop","link_module":"footer","link_pos":"navigation"}'>Shop</a></li>
+</ul>	</div>
+
+	<div class="toh-newsletter footer-mobile">
+		<div class="toh-newsletter-title">Sign-up for posts to your inbox</div>
+		<form action="#" method="post"  data-analytics-metrics='{"link_name":"newsletter signup","link_module":"newsletter signup","link_pos":"footer"}'>
+			<input class="toh-footer-nl" type="text" name="EmailAddress" placeholder="Email Address">
+			<button type="submit" class="toh-sign-up-btn">
+				Sign up			</button>
+		</form>
+	</div>
+
+	<div class="footer-left-bottom">
+		<div class="footer-menu-label">Our Brands</div>
+		<ul id="menu-our-brands" class="footer-brand-links"><li id="menu-item-569453" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Taste of Home","link_module":"navigation","link_pos":"footer"}' href="https://www.tasteofhome.com">Taste of Home</a></li>
+<li id="menu-item-569456" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"The Family Handyman","link_module":"navigation","link_pos":"footer"}' href="https://www.familyhandyman.com">The Family Handyman</a></li>
+<li id="menu-item-569457" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Birds &amp; Blooms","link_module":"navigation","link_pos":"footer"}' href="https://www.birdsandblooms.com">Birds &#038; Blooms</a></li>
+</ul><ul id="menu-footer-global-links" class="footer-global-links"><li id="menu-item-569416" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"LifeRich Publishing","link_module":"header","link_pos":"main navigation"}' href="https://www.liferichpublishing.com/">LifeRich Publishing</a></li>
+<li id="menu-item-569417" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"OneMain Financial Services","link_module":"header","link_pos":"main navigation"}' href="https://www.onemainfinancial.com/partners/360b65fa?CSCALD=18102&amp;TRKCD=homepage&amp;utm_medium=Affinity">OneMain Financial Services</a></li>
+<li id="menu-item-569418" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"MediaKit","link_module":"header","link_pos":"main navigation"}' href="https://www.rd.com/media-kit">MediaKit</a></li>
+<li id="menu-item-569421" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Contact Us","link_module":"header","link_pos":"main navigation"}' href="https://www.rd.com/contact-us">Contact Us</a></li>
+<li id="menu-item-569423" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Customer Service","link_module":"header","link_pos":"main navigation"}' href="https://w1.buysub.com/pubs/RD/RDA/index.jsp?cds_page_id=69616&amp;cds_mag_code=RDA">Customer Service</a></li>
+<li id="menu-item-569425" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Terms of Use","link_module":"header","link_pos":"main navigation"}' href="https://www.rd.com/terms-of-use/">Terms of Use</a></li>
+<li id="menu-item-569427" class="privacy-policy menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Privacy Policy","link_module":"header","link_pos":"main navigation"}' href="https://www.trustedmediabrands.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-569429" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Your CA Privacy Rights","link_module":"header","link_pos":"main navigation"}' href="https://www.trustedmediabrands.com/privacy-policy/#california">Your CA Privacy Rights</a></li>
+<li id="menu-item-569432" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"About Ads","link_module":"header","link_pos":"main navigation"}' href="https://www.trustedmediabrands.com/privacy-policy/#advertising">About Ads</a></li>
+</ul>		<div class="footer-copyright">&copy; 2018 Trusted Media Brands, Inc.</div>
+	</div>
+</div>
+<div class="footer-right footer-desktop">
+	
+
+<div class="newsletter-signup-content-widget -footer">
+
+	
+	<div class="newsletter-signup-content-widget__body">
+
+		
+		<h3 class="newsletter-signup-content-widget__title">Sign Up for Our Newsletters</h3>
+
+		<div class="newsletter-signup-content-widget__byline">
+			Get articles sent right to your inbox		</div>
+
+		<div class="newsletter-signup-content-widget__form">
+						<form action="https://www.rd.com/newsletters/" method="post"   data-analytics-metrics='{"link_name":"Email Sign-up","link_module":"newsletter signup","link_pos":"footer"}' >
+			<input class="toh-footer-nl" type="text" name="EmailAddress" placeholder="Email Address">
+			<button type="submit" class="toh-sign-up-btn">Sign Up</button>
+			</form>
+		</div>
+	</div>
+
+		<div class="newsletter-signup-content-widget__footer">
+
+		<div class="newsletter-signup-content-widget__tagline">Enjoy the BEST stories, advice & jokes!</div>
+
+		<div class="newsletter-signup-content-widget__subscribe-link">
+			<a href="https://order.readersdigest.com/servlet/OrdersGateway?cds_mag_code=RDA&cds_page_id=212947&cds_response_key=IW7ADU101" data-analytics-metrics='{"link_name":"Subscribe link","link_module":"footer","link_pos":"magazine subscription"}'>
+				<img src="https://www.rd.com/wp-content/themes/tmbi-theme-v3/images/nl-subscribe-mag.png" >
+			</a>
+
+		</div>
+	</div>
+	
+</div>
+
+</div>
+</div></footer></div><link rel="dns-prefetch" href="//ads.intentiq.com" />
+<link rel="dns-prefetch" href="//api.intentiq.com" />
+<link rel="dns-prefetch" href="//connect.facebook.net" />
+<link rel="dns-prefetch" href="//cdn.taboola.com" />
+<link rel="dns-prefetch" href="//netstorage.taboola.com" />
+<link rel="dns-prefetch" href="//trc.taboola.com" />
+<link rel="dns-prefetch" href="//completion.amazon.com" />
+<link rel="dns-prefetch" href="//g-ecx.images-amazon.com" />
+<link rel="dns-prefetch" href="//s3.amazonaws.com" />
+<link rel="dns-prefetch" href="//imasdk.googleapis.com" />
+<link rel="dns-prefetch" href="//s.amazon-adsystem.com" />
+<link rel="dns-prefetch" href="//c.amazon-adsystem.com" />
+<link rel="dns-prefetch" href="//api.bounceexchange.com" />
+<link rel="dns-prefetch" href="//static.parsely.com" />
+<link rel="dns-prefetch" href="//m.addthis.com" />
+<link rel="dns-prefetch" href="//s7.addthis.com" />
+<link rel="dns-prefetch" href="//player.mediabong.net" />
+<link rel="dns-prefetch" href="//api.dmcdn.net" />
+<link rel="dns-prefetch" href="//acsalemedia.com" />
+<link rel="dns-prefetch" href="//dsum-sec.casalemedia.com" />
+<link rel="dns-prefetch" href="//ssum.acsalemedia.com" />
+<link rel="dns-prefetch" href="//oo.moatads.com" />
+<link rel="dns-prefetch" href="//geo.moatads.com" />
+<link rel="dns-prefetch" href="//mb.acsalemedia.com" />
+<link rel="dns-prefetch" href="//adserver-us.adtech.advertising.com" />
+<link rel="dns-prefetch" href="//ads.rubiconproject.com" />
+<link rel="dns-prefetch" href="//apex.go.sonobi.com" />
+<link rel="dns-prefetch" href="//go.sonobi.com" />
+<link rel="dns-prefetch" href="//mtrx.go.sonobi.com" />
+<link rel="dns-prefetch" href="//ib.adnxs.com" />
+<link rel="dns-prefetch" href="//trustedmediabrands.sc.omtrdc.net" />
+<img style="display:none;width:1px;" src="https://secure.leadback.advertising.com/adcedge/lb?site=695501&betr=readersdigest=[+]visit[720],ltlb[8760]" width="1" height="1" border="0">
+<img style="display:none;width:1px;border-style:none;" height="1" width="1" alt="" src="//insight.adsrvr.org/track/evnt/?adv=mgekeuu&ct=0:mowvn17k&fmt=3"/>
+
+<!-- START Parse.ly Include: Standard -->
+<div id="parsely-root" style="display: none">
+<span id="parsely-cfg" data-parsely-site="rd.com"></span>
+</div>
+<script type="text/javascript">
+(function(s, p, d) {
+var h=d.location.protocol, i=p+"-"+s,
+e=d.getElementById(i), r=d.getElementById(p+"-root"),
+u=h==="https:"?"d1z2jf7jlzjs58.cloudfront.net"
+:"static."+p+".com";
+if (e) return;
+e = d.createElement(s); e.id = i; e.async = true;
+e.src = h+"//"+u+"/p.js"; r.appendChild(e);
+})("script", "parsely", document);
+</script>
+<!-- END Parse.ly Include: Standard -->
+<noscript>
+<p>
+<img src="https://sb.scorecardresearch.com/p?c1=2&c2=6034767&cv=2.0&cj=1" height="1" width="1" alt="*">
+</p>
+</noscript>
+<script>
+window.ia = window.ia || function () {(window.ia.q = window.ia.q || []).push(arguments);};ia('create', 'a6aa4f64-23b1-4acd-b324-ea87a91ae436');ia('track', 'PAGE_VIEW');
+</script>
+<script async src="https://pymx5.com/scripts/load_tags.js"></script>
+<noscript><img height="1" width="1" style="display:none" src='https://pymx5.com/images/noscript.jpg'/></noscript>
+
+<noscript><img height="1" width="1" src="https://www.facebook.com/tr?id=1468910830064549&ev=PageView&noscript=1"/></noscript>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/tmbi-recirc-module/js/owl-carousel-min.js?ver=2.0.0'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/tmbi-recirc-module/js/re-circ.js?ver=2.0.0'></script>
+<script async type='text/javascript' src='https://www.rd.com/wp-content/mu-plugins/cookie-controller/js/md5.js?ver=1.2'></script>
+<script async type='text/javascript' src='https://www.rd.com/wp-content/mu-plugins/cookie-controller/js/sha1.js?ver=1.2'></script>
+<script async type='text/javascript' src='https://www.rd.com/wp-content/mu-plugins/cookie-controller/js/sha256.js?ver=1.2'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/rd-ad-pixel-controller/js/rocketfuel-ads.js?ver=1.8'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/rd-ad-pixel-controller/js/dpm-tags.js?ver=1.3'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/rd-adobe-dtm/js/adobe_dtm.js?ver=1.3.8'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/rd-alc-integration/js/alc.js?ver=1.1'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/rd-alc-integration/js/alc-newsletter-script.js?ver=1.1'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/rd-listicle/js/image-mute.js?ver=1.2'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/rd-listicle/js/listicle-scroll.js?ver=0.6'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var NSF = {"ajaxurl":"https:\/\/www.rd.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/rd-newsletters/js/newsletter-signup.js?ver=3.6'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var rd_taboola = [{"mode":"thumbnails-g","container":"taboola-below-slideshow-thumbnails","placement":"Below Gallery Thumbnails","target_type":"mix"},{"mode":"hybrid-text-links-g","container":"taboola-below-article-text-links","placement":"Below Article Text Links","target_type":"mix"},{"mode":"thumbnails-h","container":"taboola-native-gallery-thumbnails","placement":"Native Gallery Thumbnails","target_type":"mix"}];
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/rd-taboola/js/rd-taboola-gallery.js?ver=0.2.1'></script>
+<script type='text/javascript' src='https://api.dmcdn.net/all.js?ver=4.9.8'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var rd_dm_videos = [];
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/rd-video/inc/players/../js/dm-player.js?ver=1.0.7'></script>
+<script type='text/javascript' src='https://content.jwplatform.com/libraries/wjcpcdaI.js?ver=4.9.8'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var jw_videos = [];
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/rd-video/inc/players/../js/jw-player.js?ver=1.0.7'></script>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/8.0.1/lazyload.min.js?ver=8.0.1'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/smart-images/smart-images.js?ver=1.0.0'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var rd_bx = {"script_id":"948"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/tmbi-bx/js/smart-tag.js?ver=1.2'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/tmbi-comscore-mmx/js/comscore-mmx.js?ver=1.0.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tmb_liveramp = {"pid":"8350"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/tmbi-liveramp/js/liveramp.js?ver=1'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/tmbi-salesforce-dmp/js/krux-click-traking.js?ver=0.0.3'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/themes/genesis/lib/js/skip-links.min.js?ver=2.6.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var genesisSampleL10n = {"mainMenu":"Menu","subMenu":"Menu"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/themes/tmbi-theme-v3/js/responsive-menu.js?ver=3.7.39'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/themes/tmbi-theme-v3/js/aalb-image.js?ver=3.7.39'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/themes/tmbi-theme-v3/js/enquire.js?ver=3.7.39'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/themes/tmbi-theme-v3/js/blurred-image.js?ver=3.7.39'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var google_analytics_plus = {"ga_id":"UA-17041328-1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/themes/tmbi-theme-v3/js/script.min.js?ver=3.7.39'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-includes/js/underscore.min.js?ver=1.8.3'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/plugins/elasticpress/features/facets/assets/js/facets.min.js?ver=2.6.1'></script>
+<script async type='text/javascript' src='//s7.addthis.com/js/300/addthis_widget.js?ver=1.2.4#pubid=ra-55a471fa3111e294'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/themes/tmbi-theme-v3/js/jquery.touchSwipe.min.js?ver=3.7.39'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-content/themes/tmbi-theme-v3/js/list-view-redirect.js?ver=3.7.39'></script>
+<script async type='text/javascript' src='https://www.rd.com/wp-content/plugins/rd-mobile-content-expander/js/mobile-content-expander.js?ver=1.1.0'></script>
+<script type='text/javascript' src='https://www.rd.com/wp-includes/js/wp-embed.min.js?ver=4.9.8'></script>
+
+<script type="text/javascript">
+if(typeof _satellite !== "undefined"){
+  _satellite.pageBottom()
+}
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"bab150296b","applicationID":"51130036","transactionName":"M1BUY0YAC0ZWUxVaXQoad1RACApbGEMIXVUIUBtUWw0JUFRECFxc","queueTime":0,"applicationTime":524,"atts":"HxdXFQ4aGEg=","errorBeacon":"bam.nr-data.net","agent":""}</script></body></html>
